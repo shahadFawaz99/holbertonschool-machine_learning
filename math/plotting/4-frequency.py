@@ -1,28 +1,18 @@
 #!/usr/bin/env python3
-"""now we will look at more than one plot"""
-
+"""Plot a histogram of student grades for Project A."""
 
 import numpy as np
 import matplotlib.pyplot as plt
 
 
-def two():
-    """
-    Docstring for two
-    """
-    x = np.arange(0, 21000, 1000)
-    r = np.log(0.5)
-    t1 = 5730
-    t2 = 1600
-    y1 = np.exp((r / t1) * x)
-    y2 = np.exp((r / t2) * x)
+def frequency():
+    """Plot histogram of student grades with bins of 10 and black edges."""
+    np.random.seed(5)
+    student_grades = np.random.normal(68, 15, 50)
     plt.figure(figsize=(6.4, 4.8))
-    plt.plot(x, y1, 'r--', label='C-14')
-    plt.plot(x, y2, 'g-', label='Ra-226')
-    plt.legend()
-    plt.ylabel('Fraction Remaining')
-    plt.xlim(0, 20000)
-    plt.ylim(0, 1)
-    plt.xlabel('Time (years)')
-    plt.title('Exponential Decay of Radioactive Elements')
+    # Plot histogram with bins every 10 units and black edges
+    plt.hist(student_grades, bins=range(0, 101, 10), edgecolor="black")
+    plt.xlabel("Grades")
+    plt.ylabel("Number of Students")
+    plt.title("Project A")
     plt.show()
