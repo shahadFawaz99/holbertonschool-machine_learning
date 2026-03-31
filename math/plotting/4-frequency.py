@@ -1,18 +1,28 @@
 #!/usr/bin/env python3
-"""Plot a histogram of student grades for Project A."""
+"""now we will work with a histogram"""
+
 
 import numpy as np
 import matplotlib.pyplot as plt
 
 
 def frequency():
-    """Plot histogram of student grades with bins of 10 and black edges."""
+    """
+    Docstring for frequency
+    """
     np.random.seed(5)
     student_grades = np.random.normal(68, 15, 50)
     plt.figure(figsize=(6.4, 4.8))
-    # Plot histogram with bins every 10 units and black edges
-    plt.hist(student_grades, bins=range(0, 101, 10), edgecolor="black")
-    plt.xlabel("Grades")
-    plt.ylabel("Number of Students")
-    plt.title("Project A")
+    plt.hist(
+            student_grades,
+            bins=[i for i in range(0, 101, 10)],
+            edgecolor='black'
+    )
+    plt.xlabel('Grades')
+    plt.ylabel('Number of Students')
+    plt.title('Project A')
+    plt.xlim(0, 100)
+    plt.xticks(range(0, 101, 10))
+    plt.yticks(range(0, 31, 5))
+    plt.ylim(0, 30)
     plt.show()
