@@ -1,9 +1,14 @@
 #!/usr/bin/env python3
-"""Load data from a file as a pandas DataFrame"""
+"""now let's do with using filename"""
+
 
 import pandas as pd
 
 
-def from_file(filename, delimiter):
-    """Return DataFrame loaded from file"""
-    return pd.read_csv(filename, sep=delimiter)
+def rename(df):
+    """create a DataFrame from a file"""
+    df = df.rename(columns={'Timestamp': 'Datetime'})
+    df['Datetime'] = pd.to_datetime(df['Datetime'], unit='s')
+    df = df[['Datetime', 'Close']]
+
+    return df
